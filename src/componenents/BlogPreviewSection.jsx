@@ -1,4 +1,5 @@
 import { Star } from "lucide-react"
+import colors from "../constants/colors" // assure-toi que le chemin est correct
 
 const dummyArticles = [
   {
@@ -53,16 +54,25 @@ const dummyArticles = [
 
 export default function BlogPreviewSection() {
   return (
-    <section className="py-12 px-4 md:px-8">
+    <section
+      className="py-12 px-4 md:px-8"
+      style={{ backgroundColor: colors.ivory }}
+    >
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl font-bold mb-6 text-gray-800">Nos derniers articles</h2>
+        <h2
+          className="text-3xl font-bold mb-6"
+          style={{ color: colors.dark }}
+        >
+          Nos derniers articles
+        </h2>
 
         {/* Grid des articles */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
           {dummyArticles.map((article) => (
             <div
               key={article.id}
-              className="rounded-lg shadow hover:shadow-md transition duration-300 bg-white overflow-hidden"
+              className="rounded-lg shadow hover:shadow-md transition duration-300 overflow-hidden"
+              style={{ backgroundColor: colors.olive }}
             >
               <img
                 src={article.image}
@@ -70,21 +80,39 @@ export default function BlogPreviewSection() {
                 className="w-full h-48 object-cover"
               />
               <div className="p-4">
-                <h3 className="text-lg font-semibold">{article.title}</h3>
-                <p className="text-sm text-gray-500">{article.date}</p>
-                <p className="text-sm text-gray-700 mt-2 mb-4">{article.excerpt}</p>
+                <h3
+                  className="text-lg font-semibold"
+                  style={{ color: colors.dark }}
+                >
+                  {article.title}
+                </h3>
+                <p
+                  className="text-sm mb-1"
+                  style={{ color: colors.mint }}
+                >
+                  {article.date}
+                </p>
+                <p
+                  className="text-sm mb-4"
+                  style={{ color: colors.dark }}
+                >
+                  {article.excerpt}
+                </p>
 
-                <div className="flex justify-between items-center mb-2">
-                  <div className="flex items-center text-yellow-500 text-sm">
+                <div className="flex justify-between items-center mb-3">
+                  <div className="flex items-center text-sm" style={{ color: "#facc15" }}>
                     <Star className="h-4 w-4 fill-yellow-400" />
                     {article.rating}
                   </div>
                 </div>
 
-                {/* ➕ Nouveau bouton pour plus d'infos */}
                 <a
                   href={`/articles/${article.id}`}
-                  className="block text-center bg-blue-600 text-white text-sm font-semibold py-2 px-4 rounded hover:bg-blue-700 transition"
+                  className="block text-center text-sm font-semibold py-2 px-4 rounded transition"
+                  style={{
+                    backgroundColor: colors.dark,
+                    color: colors.light,
+                  }}
                 >
                   Plus d’infos
                 </a>
@@ -93,13 +121,17 @@ export default function BlogPreviewSection() {
           ))}
         </div>
 
-        {/* Bouton général "Voir plus d’articles" */}
+        {/* Bouton voir plus */}
         <div className="text-center mt-8">
           <a href="/articles">
             <button
-              className="bg-gray-800 text-white font-semibold py-2 px-6 rounded-lg hover:bg-gray-900"
+              className="font-semibold py-2 px-6 rounded-lg transition"
+              style={{
+                backgroundColor: colors.dark,
+                color: colors.light,
+              }}
             >
-              Voir plus d’articles
+              Voir plus d’articles 
             </button>
           </a>
         </div>
