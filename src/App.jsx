@@ -2,7 +2,8 @@ import { Routes, Route } from 'react-router-dom'
 import AboutUsSection from './pages/about'
 import Layout from './Layout'
 import BlogPreviewSection from "./componenents/BlogPreviewSection"
-import Home from "./componenents/Home";
+import Home from './componenents/Home'
+
 
 function App() {
   return (
