@@ -10,7 +10,7 @@ function Layout() {
         <Link to="/about">À propos</Link>
       </nav>
 
-      <main className="flex-grow p-4">
+      <main className="flex-grow">
         <Outlet />
       </main>
 
