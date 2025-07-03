@@ -1,23 +1,16 @@
-import React from 'react';
-import colors from './constants/colors';
+import { Routes, Route } from 'react-router-dom'
+import AboutUsSection from './pages/about'
+import Layout from './Layout'
 
 function App() {
   return (
- <div
-      className="min-h-screen flex items-center justify-center"
-      style={{ backgroundColor: colors.ivory }}
-    >
-      <p
-        className="text-xl font-semibold shadow-lg p-4 rounded"
-        style={{
-          color: colors.eucalyptus,
-          backgroundColor: colors.olive,
-        }}
-      >
-        Hello world test
-      </p>
-    </div>
-  );
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        {/* <Route index element={<Home />} /> */}
+        <Route path="about" element={<AboutUsSection />} />
+      </Route>
+    </Routes>
+  )
 }
 
-export default App;
+export default App
