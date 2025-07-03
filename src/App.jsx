@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 import AboutUsSection from './pages/about'
 import Layout from './Layout'
 import BlogPreviewSection from "./componenents/BlogPreviewSection"
-import Header from './componenents/Home'
+import Home from './componenents/Home'
 
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
       <Route path="/" element={<Layout />}>
         {/* <Route index element={<Home />} /> */}
         
-        <Route path="" element={<Header />} /> 
+        <Route path="" element={<Home />} />
         <Route path="about" element={<AboutUsSection />} /> 
         <Route path="blog" element={<BlogPreviewSection />} />  
       </Route>
