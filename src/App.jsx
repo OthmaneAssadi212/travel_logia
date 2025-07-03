@@ -14,7 +14,7 @@ function App() {
           backgroundColor: colors.olive,
         }}
       >
-        Hello world
+        Hello world test
       </p>
     </div>
   );
