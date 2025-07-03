@@ -1,23 +1,10 @@
-import React from 'react';
-import colors from './constants/colors';
+import Home from "./componenents/Home";
+
 
 function App() {
   return (
- <div
-      className="min-h-screen flex items-center justify-center"
-      style={{ backgroundColor: colors.ivory }}
-    >
-      <p
-        className="text-xl font-semibold shadow-lg p-4 rounded"
-        style={{
-          color: colors.eucalyptus,
-          backgroundColor: colors.olive,
-        }}
-      >
-        Hello world test
-      </p>
-    </div>
-  );
+    <Home />
+  )
 }
 
-export default App;
+export default App
