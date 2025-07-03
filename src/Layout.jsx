@@ -1,6 +1,6 @@
 import React from 'react'
 import { Outlet, Link } from 'react-router-dom'
-import Footer from './components/partials/Footer'
+import Footer from './componenents/partials/Footer'
 
 function Layout() {
   return (
