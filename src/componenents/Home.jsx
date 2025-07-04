@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import BlogPreviewSection from './BlogPreviewSection';
+import AddBlogSection from '../components/AddBlogSection';
 
 const carouselItems = [
     { id: 1, image: "/image/travel1.jpg" },
@@ -130,6 +131,7 @@ function Header() {
                 </Carousel>
             </header>
             <BlogPreviewSection />
+            <AddBlogSection />
         </>
 
 

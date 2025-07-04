@@ -1,4 +1,4 @@
-import { Star } from "lucide-react"
+
 import colors from "../constants/colors" // assure-toi que le chemin est correct
 
 const dummyArticles = [
@@ -101,7 +101,6 @@ export default function BlogPreviewSection() {
 
                 <div className="flex justify-between items-center mb-3">
                   <div className="flex items-center text-sm" style={{ color: "#facc15" }}>
-                    <Star className="h-4 w-4 fill-yellow-400" />
                     {article.rating}
                   </div>
                 </div>

@@ -3,6 +3,7 @@ import AboutUsSection from './pages/about'
 import Layout from './Layout'
 import BlogPreviewSection from "./componenents/BlogPreviewSection"
 import Home from './componenents/Home'
+import AddBlogPage from './components/AddBlogPage'
 
 
 function App() {
@@ -13,7 +14,9 @@ function App() {
         
         <Route path="" element={<Home />} />
         <Route path="about" element={<AboutUsSection />} /> 
-        <Route path="blog" element={<BlogPreviewSection />} />  
+        <Route path="blog" element={<BlogPreviewSection />} /> 
+        <Route path="blog/add" element={<AddBlogPage />} /> 
+ 
       </Route>
     </Routes>
 
