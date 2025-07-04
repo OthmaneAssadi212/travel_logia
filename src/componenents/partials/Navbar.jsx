@@ -1,16 +1,22 @@
 import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import './Navbar.css';
 
-
-
 export default function Navbar() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    setIsAuthenticated(!!token);
+  }, []);
+
   return (
     <nav className="bg-white shadow-sm">
       <div className="container mx-auto px-6 py-3 flex items-center justify-between">
         {/* Logo */}
-        <a href="/" className="text-xl font-bold text-gray-800 tracking-wide">
+        <Link to="/" className="text-xl font-bold text-gray-800 tracking-wide">
           TravelPlan
-        </a>        
+        </Link>
 
         {/* Search bar */}
         <div className="mx-6">
@@ -41,20 +47,29 @@ export default function Navbar() {
 
         {/* Auth buttons */}
         <div className="flex items-center space-x-4">
-                         <div className="text-gray-600 hover:text-gray-800 text-sm font-medium transition-colors"><Link to="/about" >About</Link></div>    
-
-          <a
-            href="/register"
+          <Link
+            to="/about"
             className="text-gray-600 hover:text-gray-800 text-sm font-medium transition-colors"
           >
-            Connexion
-          </a>
-           <Link
-        to="/register"
-        className="bg-emerald-500 text-white px-4 py-1.5 rounded-md hover:bg-emerald-700 text-sm font-medium transition-colors"
-      >
-        Inscription
-      </Link>
+            About
+          </Link>
+
+          {!isAuthenticated && (
+            <>
+              <Link
+                to="/login"
+                className="text-gray-600 hover:text-gray-800 text-sm font-medium transition-colors"
+              >
+                Connexion
+              </Link>
+              <Link
+                to="/register"
+                className="bg-emerald-500 text-white px-4 py-1.5 rounded-md hover:bg-emerald-700 text-sm font-medium transition-colors"
+              >
+                Inscription
+              </Link>
+            </>
+          )}
         </div>
       </div>
     </nav>

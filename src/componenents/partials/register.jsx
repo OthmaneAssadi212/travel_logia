@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
+
 
 export function Register() {
   const [form, setForm] = useState({
@@ -12,8 +14,8 @@ export function Register() {
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
+  const { register } = useAuth();
 
-  // Si vous gérez un utilisateur déjà connecté via localStorage
   useEffect(() => {
     if (localStorage.getItem("token")) {
       navigate("/");
@@ -26,28 +28,25 @@ export function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
+
     if (form.password !== form.confirm) {
       setError("Les mots de passe ne correspondent pas");
       return;
     }
+
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:8000/api/auth/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: form.name,
-          email: form.email,
-          password: form.password,
-        }),
+      const data = await register({
+        name: form.name,
+        email: form.email,
+        password: form.password,
       });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.message || "Erreur serveur");
-      // Enregistrer token / user si besoin
+
+      // Stocker token et rediriger (si nécessaire)
       localStorage.setItem("token", data.token);
       navigate("/");
     } catch (err) {
-      setError(err.message);
+      setError(err.response?.data?.message || err.message || "Erreur lors de l'inscription");
     } finally {
       setLoading(false);
     }
