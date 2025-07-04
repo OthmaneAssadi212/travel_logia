@@ -53,7 +53,7 @@
                     {new Date(article.createdAt).toLocaleDateString("fr-FR")}
                   </p>
                   <p className="text-sm mb-4" style={{ color: colors.dark }}>
-                    {article.description?.slice(0, 120)}...
+                    {article.slug?.slice(0, 120)}...
                   </p>
 
                   <div className="flex justify-between items-center mb-3">
@@ -67,7 +67,7 @@
                   </div>
 
                   <a
-                    href={`/articles/${article._id}`}
+                    href={`/blogs/${article._id}`}
                     className="block text-center text-sm font-semibold py-2 px-4 rounded transition"
                     style={{
                       backgroundColor: colors.dark,

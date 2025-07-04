@@ -53,7 +53,7 @@ const AddBlogPage = () => {
       });
 
       const data = await res.json();
-      console.log(" Blog ajouté:", data);
+      console.log("Blog ajouté:", data);
       setSuccessMsg("La publication a été ajoutée avec succès !");
       setForm({ title: "", city: "", description: "" });
       setImageFile(null);
@@ -75,7 +75,6 @@ const AddBlogPage = () => {
         {successMsg && (
           <p className="text-green-600 text-center mb-4">{successMsg}</p>
         )}
-
 
         <div className="mb-4">
           <label className="block mb-1 text-sm">Titre *</label>
@@ -125,7 +124,6 @@ const AddBlogPage = () => {
           )}
         </div>
 
-        
         <div className="mb-6">
           <label className="block mb-1 text-sm">Image </label>
           <input
@@ -137,7 +135,19 @@ const AddBlogPage = () => {
           />
         </div>
 
-   
+        {imageFile && (
+          <div className="mb-6">
+            <label className="block mb-2 text-sm font-medium">Aperçu de l’image :</label>
+            <div className="grid grid-cols-3 gap-4">
+              <img
+                src={URL.createObjectURL(imageFile)}
+                alt="preview"
+                className="w-full h-32 object-cover rounded-xl shadow"
+              />
+            </div>
+          </div>
+        )}
+
         <button
           type="submit"
           className="w-full py-3 rounded-xl font-semibold transition duration-200"
