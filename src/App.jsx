@@ -8,6 +8,8 @@ import Home from './componenents/Home'
 import AddBlogPage from './components/AddBlogPage'
 import BlogsPage from "./componenents/BlogsPage";
 
+import Register from './componenents/partials/Register'
+import LoginForm from './componenents/partials/loginForm'
 
 
 function App() {
@@ -16,13 +18,20 @@ function App() {
       <Route path="/" element={<Layout />}>
         {/* <Route index element={<Home />} /> */}
         
-        <Route path="" element={<Home />} />
+        
+       
+        <Route path="" element={<Home />} /> 
+       
         <Route path="about" element={<AboutUsSection />} /> 
         
         <Route path="blog/add" element={<AddBlogPage />} />  
         <Route path="/blogs" element={<BlogsPage />} />
 
 
+        <Route path='register' element={<Register/>}/>
+        <Route path="login" element={<LoginForm />} /> 
+
+ 
       </Route>
     </Routes>
 

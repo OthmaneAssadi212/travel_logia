@@ -53,8 +53,8 @@ function Header() {
                             <div className="absolute inset-0 bg-gradient-to-r from-blue-900/70 to-emerald-800/70" />
 
                             <div className="container mx-auto px-4 text-white text-center relative z-10">
-                                <h2 className="font-bold text-3xl">Bienvenue sur</h2>
-                                <h1 className="text-4xl md:text-6xl font-bold capitalize mb-6">Travel Planner</h1>
+                                <h2 className="font-bold text-3xl ">Bienvenue sur</h2>
+                                <h1 className="text-4xl md:text-6xl text-gray-200 font-bold capitalize mb-6">Travel Planner</h1>
 
                                 {/* Formulaire de recherche */}
                                 <form
