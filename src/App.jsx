@@ -1,18 +1,27 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Importer Router, Routes et Route
-import colors from './constants/colors';
-import AddBlogSection from "../src/components/AddBlogSection";
-import AddBlogPage from '../src/components/AddBlogPage';
+import { Routes, Route } from 'react-router-dom'
+import AboutUsSection from './pages/about'
+import Layout from './Layout'
+import BlogPreviewSection from "./componenents/BlogPreviewSection"
+import Home from './componenents/Home'
+import AddBlogPage from './components/AddBlogPage'
+
 
 function App() {
   return (
-    <Router> 
-      <Routes> 
-        <Route path="/" element={<AddBlogSection />} />
-        <Route path="/add" element={<AddBlogPage />} /> 
-      </Routes>
-    </Router>
-  );
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        {/* <Route index element={<Home />} /> */}
+        
+        <Route path="" element={<Home />} />
+        <Route path="about" element={<AboutUsSection />} /> 
+        <Route path="blog" element={<BlogPreviewSection />} /> 
+        <Route path="blog/add" element={<AddBlogPage />} /> 
+ 
+      </Route>
+    </Routes>
+
+  )
 }
 
-export default App;
+
+export default App
