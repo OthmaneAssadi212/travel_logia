@@ -1,22 +1,17 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Importer Router, Routes et Route
 import colors from './constants/colors';
+import AddBlogSection from "../src/components/AddBlogSection";
+import AddBlogPage from '../src/components/AddBlogPage';
 
 function App() {
   return (
- <div
-      className="min-h-screen flex items-center justify-center"
-      style={{ backgroundColor: colors.ivory }}
-    >
-      <p
-        className="text-xl font-semibold shadow-lg p-4 rounded"
-        style={{
-          color: colors.eucalyptus,
-          backgroundColor: colors.olive,
-        }}
-      >
-        Hello world test
-      </p>
-    </div>
+    <Router> 
+      <Routes> 
+        <Route path="/" element={<AddBlogSection />} />
+        <Route path="/add" element={<AddBlogPage />} /> 
+      </Routes>
+    </Router>
   );
 }
 
