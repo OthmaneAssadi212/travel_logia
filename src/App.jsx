@@ -8,7 +8,7 @@ import Home from './componenents/Home'
 import AddBlogPage from './components/AddBlogPage'
 import BlogsPage from "./componenents/BlogsPage";
 
-import Register from './componenents/partials/Register'
+import Register from './componenents/partials/register'
 import LoginForm from './componenents/partials/loginForm'
 
 
@@ -29,8 +29,10 @@ function App() {
 
 
         <Route path='register' element={<Register/>}/>
-        <Route path="login" element={<LoginForm />} /> 
+                <Route path="login" element={<LoginForm />} /> 
 
+        <Route path="blog" element={<BlogPreviewSection />} /> 
+        <Route path="blog/add" element={<AddBlogPage />} /> 
  
       </Route>
     </Routes>
