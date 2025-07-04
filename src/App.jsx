@@ -2,7 +2,9 @@ import { Routes, Route } from 'react-router-dom'
 import AboutUsSection from './pages/about'
 import Layout from './Layout'
 import BlogPreviewSection from "./componenents/BlogPreviewSection"
+import AddBlogSection from "./componenents/AddBlogSection"
 import Home from './componenents/Home'
+import BlogsPage from "./componenents/BlogsPage";
 
 
 function App() {
@@ -14,6 +16,9 @@ function App() {
         <Route path="" element={<Home />} />
         <Route path="about" element={<AboutUsSection />} /> 
         <Route path="blog" element={<BlogPreviewSection />} />  
+        <Route path="blo" element={<AddBlogSection />} />  
+        <Route path="/blogs" element={<BlogsPage />} />
+
       </Route>
     </Routes>
 
