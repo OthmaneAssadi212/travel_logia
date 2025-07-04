@@ -5,15 +5,15 @@ import colors from "../constants/colors";
 
 export default function BlogPreviewSection() {
   const [articles, setArticles] = useState([]);
-  const navigate = useNavigate(); // ⬅️ نستخدم useNavigate
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("http://localhost:8000/api/v1/blogs")
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         setArticles(data.data.slice(0, 6));
       })
-      .catch(err => console.error("Erreur de chargement:", err));
+      .catch((err) => console.error("Erreur de chargement:", err));
   }, []);
 
   return (
@@ -22,10 +22,7 @@ export default function BlogPreviewSection() {
       style={{ backgroundColor: colors.ivory }}
     >
       <div className="max-w-7xl mx-auto">
-        <h2
-          className="text-3xl font-bold mb-6"
-          style={{ color: colors.dark }}
-        >
+        <h2 className="text-3xl font-bold mb-6" style={{ color: colors.dark }}>
           Nos derniers articles
         </h2>
 
@@ -53,7 +50,7 @@ export default function BlogPreviewSection() {
                   {new Date(article.createdAt).toLocaleDateString("fr-FR")}
                 </p>
                 <p className="text-sm mb-4" style={{ color: colors.dark }}>
-                  {article.description?.slice(0, 120)}...
+                  {article.description?.split(" ").slice(0, 20).join(" ")}...
                 </p>
 
                 <div className="flex justify-between items-center mb-3">
@@ -66,16 +63,17 @@ export default function BlogPreviewSection() {
                   </div>
                 </div>
 
-                <a
-                  href={`/articles/${article._id}`}
-                  className="block text-center text-sm font-semibold py-2 px-4 rounded transition"
+                {/* 🔄 Lien remplacé par navigation dynamique */}
+                <button
+                  onClick={() => navigate(`/blogs/${article._id}`)}
+                  className="block w-full text-center text-sm font-semibold py-2 px-4 rounded transition"
                   style={{
                     backgroundColor: colors.dark,
                     color: colors.light,
                   }}
                 >
                   Plus d’infos
-                </a>
+                </button>
               </div>
             </div>
           ))}
@@ -84,7 +82,7 @@ export default function BlogPreviewSection() {
         {/* Bouton voir plus */}
         <div className="text-center mt-8">
           <button
-            onClick={() => navigate("/blogs")} // ⬅️ Navigation React Router
+            onClick={() => navigate("/blogs")}
             className="font-semibold py-2 px-6 rounded-lg transition"
             style={{
               backgroundColor: colors.dark,

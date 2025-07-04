@@ -10,7 +10,7 @@ import BlogsPage from "./componenents/BlogsPage";
 
 import Register from './componenents/partials/register'
 import LoginForm from './componenents/partials/loginForm'
-
+import BlogDetail from './componenents/BlogDetail';
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
         {/* <Route index element={<Home />} /> */}
         
         
-       
+        <Route path="/blogs/:id" element={<BlogDetail />} />
         <Route path="" element={<Home />} /> 
        
         <Route path="about" element={<AboutUsSection />} /> 

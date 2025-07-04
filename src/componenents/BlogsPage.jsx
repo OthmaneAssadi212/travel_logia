@@ -55,7 +55,7 @@ export default function BlogsPage() {
                   </div>
 
                   <a
-                    href={`/articles/${article._id}`}
+                    href={`/blogs/${article._id}`}
                     className="block text-center text-sm font-semibold py-2 px-4 rounded transition"
                     style={{
                       backgroundColor: colors.dark,
