@@ -308,7 +308,7 @@ const AddBlogPage = () => {
     }
 
     try {
-      const res = await fetch("http://localhost:5000/api/blogs", {
+      const res = await fetch("http://localhost:8000/api/v1/blogs", {
         method: "POST",
         body: formData,
       });
