@@ -5,7 +5,7 @@ const AddBlogSection = () => {
   const navigate = useNavigate();
 
   const handleAddBlog = () => {
-    navigate("/add"); // Navigue vers /add
+    navigate("/blog/add"); // Navigue vers /add
   };
 
   return (
