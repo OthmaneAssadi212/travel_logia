@@ -4,9 +4,10 @@ import colors from "../constants/colors";
 
 export default function BlogsPage() {
   const [blogs, setBlogs] = useState([]);
+  const base_url = import.meta.env.VITE_BACKEND_URL;
 
   useEffect(() => {
-    fetch("http://localhost:8000/api/v1/blogs")
+     fetch(`${base_url}/blogs`)
       .then(res => res.json())
       .then(data => {
         setBlogs(data.data);

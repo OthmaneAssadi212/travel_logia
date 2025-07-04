@@ -42,9 +42,8 @@ export function Register() {
         password: form.password,
       });
 
-      // Stocker token et rediriger (si nécessaire)
-      localStorage.setItem("token", data.token);
-      navigate("/");
+      
+      navigate("/login");
     } catch (err) {
       setError(err.response?.data?.message || err.message || "Erreur lors de l'inscription");
     } finally {

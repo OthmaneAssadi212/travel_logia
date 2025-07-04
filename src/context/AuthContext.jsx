@@ -38,22 +38,8 @@ export function AuthProvider({ children }) {
     return data;
   };
 
-  // Appel à votre API pour enregistrer un nouvel user
-  // const registerr = async ({ name, email, password }) => {
-  //   const res = await fetch('/auth/register', {
-  //     method: 'POST',
-  //     headers: { 'Content-Type': 'application/json' },
-  //     body: JSON.stringify({ name, email, password }),
-  //   });
-  //   const data = await res.json();
-  //   if (!res.data) throw new Error(data.message);
-  //   localStorage.setItem('token', data.token);
-  //   setUser({ token: data.token, ...data.user });
-  //   return data;
-  // };
-
     const register = async ({ name, email, password }) => {
-    const res = await api.post('/auth/signup', { name, email, password })
+    const res = await api.post('/auth/signup', { name, email, password , passwordConfirm : password})
     const data = res.data.data
     return data;
   };
@@ -63,7 +49,7 @@ export function AuthProvider({ children }) {
     setUser(null);
   };
 
-  const value = { user, login, register, logout };
+  const value = { user, login, register, logout , api };
 
   return (
     <AuthContext.Provider value={value}>

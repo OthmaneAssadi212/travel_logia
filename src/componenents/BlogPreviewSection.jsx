@@ -6,9 +6,9 @@
   export default function BlogPreviewSection() {
     const [articles, setArticles] = useState([]);
     const navigate = useNavigate(); // ⬅️ نستخدم useNavigate
-
+    const base_url = import.meta.env.VITE_BACKEND_URL;
     useEffect(() => {
-      fetch("http://localhost:8000/api/v1/blogs")
+      fetch(`${base_url}/blogs`)
         .then(res => res.json())
         .then(data => {
           setArticles(data.data.slice(0, 6));
