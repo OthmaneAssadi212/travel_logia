@@ -12,10 +12,10 @@ const Footer = () => {
 
   const styles = {
     footer: {
-      backgroundColor: colors.eucalyptus,
+      backgroundColor: colors.dark,
       color: colors.light,
       padding: '40px 20px 20px',
-      marginTop: '60px',
+     
     },
     container: {
       maxWidth: '1200px',
@@ -28,7 +28,7 @@ const Footer = () => {
       fontWeight: 'bold',
       marginBottom: '10px',
       fontSize: '18px',
-      color: colors.dark,
+      color: colors.olive,
     },
     link: {
       textDecoration: 'none',
@@ -49,7 +49,7 @@ const Footer = () => {
       fontWeight: 'bold',
       fontSize: '22px',
       marginBottom: '10px',
-      color: colors.dark,
+      color: colors.olive,
     },
     desc: {
       fontSize: '14px',

@@ -56,7 +56,7 @@ const AboutUs = () => {
             <button
               className="px-6 py-3 text-lg rounded-md shadow-md transition"
               style={{
-                backgroundColor: colors.dark,
+                backgroundColor: colors.eucalyptus,
                 color: colors.light,
               }}
             >

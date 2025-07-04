@@ -1,4 +1,5 @@
 import React from "react";
+import colors from "../constants/colors" 
 import { useNavigate } from "react-router-dom";
 
 const AddBlogSection = () => {
@@ -9,7 +10,7 @@ const AddBlogSection = () => {
   };
 
   return (
-    <div className="relative w-screen mt-20 rounded-2xl overflow-hidden p-6">
+    <div className="relative w-screen   overflow-hidden p-6">
       <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-emerald-800/80 z-0"></div>
 
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD3IxMDAlIiBmaWxsPSJ1cmwoI3BhdHRlcm4pIiBvcGFjaXR5PSIwLjEiLz48L3N2Zz4=')] opacity-10 z-10"></div>
