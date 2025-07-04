@@ -1,5 +1,13 @@
 // src/context/AuthContext.jsx
 import { createContext, useContext, useState, useEffect } from 'react';
+import axios from "axios"
+
+const api = axios.create({
+  baseURL: import.meta.env.VITE_BACKEND_URL,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
 
 const AuthContext = createContext();
 
@@ -22,29 +30,31 @@ export function AuthProvider({ children }) {
 
   // Appel à votre API pour vous loguer
   const login = async ({ email, password }) => {
-    const res = await fetch('/api/auth/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, password }),
-    });
-    const data = await res.json();
-    if (!res.ok) throw new Error(data.message);
-    localStorage.setItem('token', data.token);
+    const res = await api.post('/auth/login', {email, password})
+    const data = res.data.data
+    if (!data) throw new Error("Login Error");
+    localStorage.setItem('token', res.data.token);
     setUser({ token: data.token, ...data.user });
     return data;
   };
 
   // Appel à votre API pour enregistrer un nouvel user
-  const register = async ({ name, email, password }) => {
-    const res = await fetch('/api/auth/register', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, email, password }),
-    });
-    const data = await res.json();
-    if (!res.ok) throw new Error(data.message);
-    localStorage.setItem('token', data.token);
-    setUser({ token: data.token, ...data.user });
+  // const registerr = async ({ name, email, password }) => {
+  //   const res = await fetch('/auth/register', {
+  //     method: 'POST',
+  //     headers: { 'Content-Type': 'application/json' },
+  //     body: JSON.stringify({ name, email, password }),
+  //   });
+  //   const data = await res.json();
+  //   if (!res.data) throw new Error(data.message);
+  //   localStorage.setItem('token', data.token);
+  //   setUser({ token: data.token, ...data.user });
+  //   return data;
+  // };
+
+    const register = async ({ name, email, password }) => {
+    const res = await api.post('/auth/register', { name, email, password })
+    const data = res.data.data
     return data;
   };
 
